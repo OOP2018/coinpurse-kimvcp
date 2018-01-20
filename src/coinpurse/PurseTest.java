@@ -148,7 +148,7 @@ public class PurseTest {
 		
 		Coin [] wd1 = purse.withdraw(amount1);
 		assertEquals(amount1, sum(wd1), TOL );
-		
+		System.out.println("withdrawing " + amount2);
 		assertEquals(amount2, purse.getBalance(), TOL );
 		Coin [] wd2 = purse.withdraw(amount2);
 		
