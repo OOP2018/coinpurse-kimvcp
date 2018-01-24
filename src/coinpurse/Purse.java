@@ -2,9 +2,6 @@ package coinpurse;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
-
 import java.util.Collections;
 
 /**
