@@ -19,6 +19,9 @@ public class MoneyUtil {
 	 */
 	public static void sortCoins(List<Coin> coin) {
 		java.util.Collections.sort(coin);
+		System.out.println("\n\tAfter Sorted\n");
+		printCoins(coin);
+
 	}
 
 	/**
@@ -65,9 +68,8 @@ public class MoneyUtil {
 		coins.add(new Coin(50.0, "Yen"));
 		coins.add(new Coin(10.0, "Rupee"));
 		coins.add(new Coin(30.0, "Peso"));
-
-		sortCoins(coins);
 		printCoins(coins);
+		sortCoins(coins);
 
 	}
 
