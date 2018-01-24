@@ -48,8 +48,8 @@ public class Coin implements Comparable<Coin> {
 	/**
 	 * Check if the value and currency are the same or not.
 	 * 
-	 * @param other
-	 *            object to check
+	 * @param arg
+	 * @return true if the value and currency are the same
 	 */
 	@Override
 	public boolean equals(Object arg) {
@@ -66,9 +66,8 @@ public class Coin implements Comparable<Coin> {
 	 * 
 	 * @param other
 	 *            coin's object
-	 * @return 1 if the object coin has bigger value.
-	 * @return -1 if the object coin has smaller value.
-	 * @return 0 if both has the same value.
+	 * @return 1 if the object coin has bigger value. -1 if the object coin has
+	 *         smaller value. 0 if both has the same value.
 	 */
 	@Override
 	public int compareTo(Coin coin) {
@@ -87,7 +86,7 @@ public class Coin implements Comparable<Coin> {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%.0f-%s", value,currency);
+		return String.format("%.0f-%s", value, currency);
 	}
 
 }
