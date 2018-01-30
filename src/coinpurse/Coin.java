@@ -6,7 +6,7 @@ package coinpurse;
  * @author Vichaphol Thamsuthikul
  */
 
-public class Coin implements Comparable<Coin> {
+public class Coin implements Comparable<Coin>,Valuable {
 	// default value of coin
 	private double value;
 	// default currency of coin
@@ -58,7 +58,7 @@ public class Coin implements Comparable<Coin> {
 		if (this.getClass() != arg.getClass())
 			return false;
 		Coin other = (Coin) arg;
-		return this.value == other.value && this.currency == other.currency;
+		return this.value == other.value && this.currency.equals(other.currency);
 	}
 
 	/**

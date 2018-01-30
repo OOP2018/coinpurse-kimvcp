@@ -3,6 +3,8 @@ package coinpurse;
 import java.util.ArrayList;
 import java.util.List;
 
+import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+
 /**
  * A main class to test compareTo method.
  * 
@@ -38,21 +40,21 @@ public class MoneyUtil {
 	}
 
 	/*
+	 * Filter the money by the currency.
 	 * 
-	 * 
-	 * @param coins' object
+	 * @param value of the object
 	 * 
 	 * @param currency
 	 * 
-	 * @return list of Coins that contains only the coins from coins
+	 * @return list of the value that have the same currency
 	 */
-	public static List<Coin> filterByCurrency(List<Coin> coins, String currency) {
-		List<Coin> coinList = new ArrayList<>();
-		for (Coin coin : coins) {
-			if (coin.getCurrency().equals(currency))
-				coinList.add(coin);
+	public static List<Valuable> filterByCurrency(List<Valuable> money, String currency) {
+		List<Valuable> compCurrency = new ArrayList<>();
+		for (Valuable value : compCurrency) {
+			if (value.getCurrency().equals(currency))
+				compCurrency.add(value);
 		}
-		return coinList;
+		return compCurrency;
 	}
 
 	/**
