@@ -1,10 +1,9 @@
 package coinpurse;
 
 /**
- * 
+ * Bank note with the value, currency, and serial number 
  * 
  * @author Vichaphol Thamsuthikul
- *
  */
 public class BankNote implements Valuable {
 
