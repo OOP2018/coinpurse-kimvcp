@@ -14,6 +14,8 @@ import java.util.Comparator;
 public class Purse {
 	/** Collection of objects in the purse. */
 	List<Valuable> money;
+	/** Create a ValueComparator object */
+	private Comparator<Valuable> comparable = new ValueComparator();
 
 	/**
 	 * Capacity is maximum number of items the purse can hold. Capacity is set when
@@ -101,7 +103,6 @@ public class Purse {
 	 *         requested amount.
 	 */
 	public Valuable[] withdraw(double amount) {
-		Comparator<Valuable> comparable = new ValueComparator();
 		List<Valuable> templist = new ArrayList<Valuable>();
 		Collections.sort(money, comparable);
 		Collections.reverse(money);
@@ -114,36 +115,14 @@ public class Purse {
 			}
 		}
 
-		/*
-		 * See lab sheet for outline of a solution, or devise your own solution. The
-		 * idea is to be greedy. Try to withdraw the largest money possible. Each time
-		 * you choose a money as a candidate for withdraw, add it to a temporary list
-		 * and decrease the amount (remainder) to withdraw.
-		 * 
-		 * If you reach a point where amountNeededToWithdraw == 0 then you found a
-		 * solution! Now, use the temporary list to remove money from the money list,
-		 * and return the temporary list (as an array).
-		 */
-
-		// Did we get the full amount?
-		// This code assumes you decrease amount each time you remove a money.
-		// Your code might use some other variable for the remaining amount to withdraw.
-
 		if (amount == 0) {
 			for (Valuable value : templist) {
 				money.remove(value);
 			}
-			// failed. Don't change the contents of the purse.
 
 		} else {
 			return null;
 		}
-		// Success.
-		// Remove the money you want to withdraw from purse,
-		// and return them as an array.
-		// Use list.toArray( array[] ) to copy a list into an array.
-		// toArray returns a reference to the array itself.
-
 		Valuable[] array = new Valuable[templist.size()];
 		return templist.toArray(array);
 

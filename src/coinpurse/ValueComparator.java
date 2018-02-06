@@ -17,8 +17,8 @@ public class ValueComparator implements Comparator<Valuable> {
 	 *            a to compare
 	 * @param object
 	 *            b to compare
-	 * @return 1 if the object coin has bigger value and currency. -1 if the object coin has
-	 *         smaller value and currency. 0 if both has the same value.
+	 * @return 1 if the object coin has bigger value and currency. -1 if the object
+	 *         coin has smaller value and currency. 0 if both has the same value.
 	 */
 	public int compare(Valuable a, Valuable b) {
 		if (a.getCurrency().equals(b.getCurrency())) {
@@ -28,14 +28,8 @@ public class ValueComparator implements Comparator<Valuable> {
 				return -1;
 			else
 				return 0;
-		} else {
-			if (a.getCurrency().charAt(0) < b.getCurrency().charAt(0))
-				return 1;
-			else
-				return -1;
 		}
+		return a.getCurrency().compareTo(b.getCurrency());
 	}
-
-	
 
 }

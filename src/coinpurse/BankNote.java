@@ -1,7 +1,7 @@
 package coinpurse;
 
 /**
- * Bank note with the value, currency, and serial number 
+ * Bank note with the value, currency, and serial number
  * 
  * @author Vichaphol Thamsuthikul
  */
@@ -27,6 +27,7 @@ public class BankNote implements Valuable {
 		this.value = value;
 		this.currency = currency;
 		this.serialNumber = nextSerialNumber;
+		nextSerialNumber++;
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class BankNote implements Valuable {
 	 * 
 	 * @return serial number
 	 */
-	public long getSerialNumber() {
+	public long getSerial() {
 		return serialNumber;
 	}
 
