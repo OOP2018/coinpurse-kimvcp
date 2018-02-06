@@ -1,9 +1,9 @@
 package coinpurse;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+import java.util.Iterator;
 
 /**
  * A main class to test compareTo method.
@@ -13,16 +13,19 @@ import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 
 public class MoneyUtil {
 
+	/** Create a ValueComparator object */
+	private static Comparator<Valuable> comparable = new ValueComparator();
+
 	/**
 	 * Sort the list of coins and print the result on the console.
 	 * 
 	 * @param coin's
 	 *            object
 	 */
-	public static void sortCoins(List<Coin> coin) {
-		java.util.Collections.sort(coin);
+	public static void sortValue(List<Valuable> value) {
+		java.util.Collections.sort(value, comparable);
 		System.out.println("\n\tAfter Sorted\n");
-		printCoins(coin);
+		printValue(value);
 
 	}
 
@@ -32,9 +35,9 @@ public class MoneyUtil {
 	 * @param coin's
 	 *            object
 	 */
-	public static void printCoins(List<Coin> coin) {
-		for (int i = 0; i < coin.size(); i++) {
-			System.out.println(coin.get(i));
+	public static void printValue(List<Valuable> value) {
+		for (int i = 0; i < value.size(); i++) {
+			System.out.println(value.get(i));
 		}
 
 	}
@@ -64,14 +67,14 @@ public class MoneyUtil {
 	 *            is not used
 	 */
 	public static void main(String[] args) {
-		List<Coin> coins = new ArrayList<Coin>();
+		List<Valuable> coins = new ArrayList<Valuable>();
 		coins.add(new Coin(10.0, "Baht"));
 		coins.add(new Coin(20.0, "Dollar"));
 		coins.add(new Coin(50.0, "Yen"));
 		coins.add(new Coin(10.0, "Rupee"));
 		coins.add(new Coin(30.0, "Peso"));
-		printCoins(coins);
-		sortCoins(coins);
+		printValue(coins);
+		sortValue(coins);
 
 	}
 
