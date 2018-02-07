@@ -133,7 +133,7 @@ public class Purse {
 	 * whatever is a useful description.
 	 */
 	public String toString() {
-		return String.format("The total money are %d with the value of %f", this.count(), this.getBalance());
+		return String.format("This purse has %d objects with the value of %.2f", this.count(), this.getBalance());
 	}
 
 }
