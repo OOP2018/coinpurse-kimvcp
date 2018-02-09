@@ -5,14 +5,10 @@ package coinpurse;
  * 
  * @author Vichaphol Thamsuthikul
  */
-public class BankNote implements Valuable {
-
+public class BankNote extends Money {
+	
 	// The next serial number of bank note
 	private long nextSerialNumber = 1000000;
-	// The value of bank note
-	private double value;
-	// The currency of bank note
-	private String currency;
 	// The serial number of bank note
 	private long serialNumber;
 
@@ -24,28 +20,9 @@ public class BankNote implements Valuable {
 	 * 
 	 */
 	public BankNote(double value, String currency) {
-		this.value = value;
-		this.currency = currency;
+		super(value, currency);
 		this.serialNumber = nextSerialNumber;
 		nextSerialNumber++;
-	}
-
-	/**
-	 * Get the value of the bank note.
-	 * 
-	 * @return value
-	 */
-	public double getValue() {
-		return value;
-	}
-
-	/**
-	 * Get the currency of the bank note.
-	 * 
-	 * @return currency
-	 */
-	public String getCurrency() {
-		return currency;
 	}
 
 	/**
@@ -55,22 +32,6 @@ public class BankNote implements Valuable {
 	 */
 	public long getSerial() {
 		return serialNumber;
-	}
-
-	/**
-	 * Check if the value and currency are the same or not.
-	 * 
-	 * @param arg
-	 * @return true if the value and currency are the same
-	 */
-	@Override
-	public boolean equals(Object arg) {
-		if (arg == null)
-			return false;
-		if (this.getClass() != arg.getClass())
-			return false;
-		BankNote other = (BankNote) arg;
-		return this.value == other.value && this.currency.equals(other.currency);
 	}
 
 	/**

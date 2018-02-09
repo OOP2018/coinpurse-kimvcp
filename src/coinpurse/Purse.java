@@ -93,8 +93,9 @@ public class Purse {
 	}
 
 	/**
-	 * Withdraw the requested amount of money. Return an array of money withdrawn
-	 * from purse, or return null if cannot withdraw the amount requested.
+	 * Withdraw the requested amount of money. using only items that have the same
+	 * currency as the parameter(amount). Return an array of money withdrawn from
+	 * purse, or return null if cannot withdraw the amount requested.
 	 * 
 	 * @param amount
 	 * 
@@ -102,20 +103,26 @@ public class Purse {
 	 * @return array of objects for money withdrawn, or null if cannot withdraw
 	 *         requested amount.
 	 */
-	public Valuable[] withdraw(double amount) {
+	public Valuable[] withdraw(Valuable amount) {
 		List<Valuable> templist = new ArrayList<Valuable>();
 		Collections.sort(money, comparable);
 		Collections.reverse(money);
-		if (amount <= 0)
+		double aValue = amount.getValue();
+		if (aValue <= 0)
 			return null;
-		for (Valuable value : money) {
-			if (value.getValue() <= amount) {
+		List<Valuable> tempCurrency = new ArrayList<>();
+		for (Valuable valuable : money) {
+			if (valuable.getCurrency().equals(amount.getCurrency()))
+				tempCurrency.add(valuable);
+		}
+		for (Valuable value : tempCurrency) {
+			if (value.getValue() <= aValue) {
 				templist.add(value);
-				amount -= value.getValue();
+				aValue -= value.getValue();
 			}
 		}
 
-		if (amount == 0) {
+		if (aValue == 0) {
 			for (Valuable value : templist) {
 				money.remove(value);
 			}
@@ -129,11 +136,27 @@ public class Purse {
 	}
 
 	/**
+	 * Withdraw the requested amount of money using default currency. Return an
+	 * array of money withdrawn from purse, or return null if cannot withdraw the
+	 * amount requested.
+	 * 
+	 * @param amount
+	 * 
+	 *            is the amount to withdraw
+	 * @return array of objects for money withdrawn, or null if cannot withdraw
+	 *         requested amount.
+	 */
+	public Valuable[] withdraw(double amount) {
+		Money money = new Money(amount, "BTC");
+		return withdraw(money);
+	}
+
+	/**
 	 * toString returns a string description of the purse contents. It can return
 	 * whatever is a useful description.
 	 */
 	public String toString() {
-		return String.format("This purse has %d objects with the value of %.2f", this.count(), this.getBalance());
+		return String.format("This purse has %d object with the value of %.2f", this.count(), this.getBalance());
 	}
 
 }
