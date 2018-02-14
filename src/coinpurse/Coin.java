@@ -27,7 +27,7 @@ public class Coin extends Money {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%.0f-%s", this.getValue(), this.getCurrency());
+		return String.format("%.2f-%s", this.getValue(), this.getCurrency());
 	}
 
 }

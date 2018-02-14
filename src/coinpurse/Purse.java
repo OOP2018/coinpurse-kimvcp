@@ -147,7 +147,7 @@ public class Purse {
 	 *         requested amount.
 	 */
 	public Valuable[] withdraw(double amount) {
-		Money money = new Money(amount, "BTC");
+		Money money = new Money(amount, "Baht");
 		return withdraw(money);
 	}
 

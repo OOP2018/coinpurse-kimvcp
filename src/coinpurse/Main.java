@@ -1,5 +1,7 @@
 package coinpurse;
- 
+
+import com.sun.xml.internal.ws.db.glassfish.BridgeWrapper;
+
 /**
  * A main class to create objects and connect objects together.
  * The user interface needs a reference to coin purse.
@@ -18,6 +20,6 @@ public class Main {
     	ConsoleDialog ui = new ConsoleDialog(purse);
         // 3. run the ConsoleDialog
     	ui.run();
-
+    	
     }
 }
