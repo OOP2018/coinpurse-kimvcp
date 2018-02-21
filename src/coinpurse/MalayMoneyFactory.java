@@ -1,4 +1,5 @@
 package coinpurse;
+
 /**
  * A class for creating Malaysia's money
  * 
@@ -12,7 +13,8 @@ public class MalayMoneyFactory extends MoneyFactory {
 	/**
 	 * Create Money according to the value with the currency(Ringgit).
 	 * 
-	 * @param value to create
+	 * @param value
+	 *            to create
 	 * @throws IllegalArgumentException
 	 */
 
@@ -29,6 +31,6 @@ public class MalayMoneyFactory extends MoneyFactory {
 			}
 
 		}
-		throw new IllegalArgumentException();
+		throw new IllegalArgumentException("Sorry, " + value + " is not valid.");
 	}
 }

@@ -1,4 +1,5 @@
 package coinpurse;
+
 /**
  * A class for creating Thai's money
  * 
@@ -8,16 +9,17 @@ package coinpurse;
 public class ThaiMoneyFactory extends MoneyFactory {
 	// The next serial number of bank note
 	private long nextSerialNumber = 1000000;
-	
+
 	/**
 	 * Create Money according to the value with the currency(Baht).
 	 * 
-	 * @param value to create
+	 * @param value
+	 *            to create
 	 * @throws IllegalArgumentException
 	 */
 	@Override
 	public Valuable createMoney(double value) throws IllegalArgumentException {
-		double money[] = { 1, 2, 5, 10, 20, 50, 100, 1000 };
+		double money[] = { 1, 2, 5, 10, 20, 50, 100, 500, 1000 };
 		for (int i = 0; i < money.length; i++) {
 			if (value > 20 && value <= 1000) {
 				if (money[i] == value)
@@ -28,7 +30,7 @@ public class ThaiMoneyFactory extends MoneyFactory {
 			}
 
 		}
-		throw new IllegalArgumentException();
+		throw new IllegalArgumentException("Sorry, "+value+" is not valid.");
 	}
 
 }
