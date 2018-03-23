@@ -1,5 +1,7 @@
 package coinpurse;
 
+import java.util.Comparator;
+
 /**
  * An interface for objects having a monetary value and currency.
  * 

@@ -2,6 +2,11 @@ package coinpurse;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import coinpurse.strategy.GreedyWithdraw;
+import coinpurse.strategy.RecursiveWithdraw;
+import coinpurse.strategy.WithdrawStrategy;
+
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -14,6 +19,7 @@ import java.util.Comparator;
 public class Purse {
 	/** Collection of objects in the purse. */
 	List<Valuable> money;
+	private WithdrawStrategy strategy;
 	/** Create a ValueComparator object */
 	private Comparator<Valuable> comparable = new ValueComparator();
 
@@ -32,6 +38,7 @@ public class Purse {
 	public Purse(int capacity) {
 		this.capacity = capacity;
 		money = new ArrayList<Valuable>();
+		setWithdrawStrategy(new GreedyWithdraw());
 	}
 
 	/**
@@ -104,34 +111,14 @@ public class Purse {
 	 *         requested amount.
 	 */
 	public Valuable[] withdraw(Valuable amount) {
-		List<Valuable> templist = new ArrayList<Valuable>();
-		Collections.sort(money, comparable);
-		Collections.reverse(money);
-		double aValue = amount.getValue();
-		if (aValue <= 0)
+		List<Valuable> withdrawList = strategy.withdraw(amount, money);
+		if (withdrawList == null)
 			return null;
-		List<Valuable> tempCurrency = new ArrayList<>();
-		for (Valuable valuable : money) {
-			if (valuable.getCurrency().equals(amount.getCurrency()))
-				tempCurrency.add(valuable);
+		for (Valuable value : withdrawList) {
+			money.remove(value);
 		}
-		for (Valuable value : tempCurrency) {
-			if (value.getValue() <= aValue) {
-				templist.add(value);
-				aValue -= value.getValue();
-			}
-		}
-
-		if (aValue == 0) {
-			for (Valuable value : templist) {
-				money.remove(value);
-			}
-
-		} else {
-			return null;
-		}
-		Valuable[] array = new Valuable[templist.size()];
-		return templist.toArray(array);
+		Valuable[] array = new Valuable[withdrawList.size()];
+		return withdrawList.toArray(array);
 
 	}
 
@@ -149,6 +136,10 @@ public class Purse {
 	public Valuable[] withdraw(double amount) {
 		Money money = new Money(amount, "Baht");
 		return withdraw(money);
+	}
+
+	public void setWithdrawStrategy(WithdrawStrategy strategy) {
+		this.strategy = strategy;
 	}
 
 	/**
