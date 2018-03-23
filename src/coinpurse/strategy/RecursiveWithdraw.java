@@ -1,11 +1,20 @@
 package coinpurse.strategy;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import coinpurse.Money;
 import coinpurse.Valuable;
 
+/**
+ * A strategy finding a solution using recursion. The key idea is that there are
+ * only 2 possibilities item is chosen or it is not. If the chosen list is not
+ * null, then return them, else return not chosen list.
+ * 
+ * @author Vichaphol Thamsuthikul
+ *
+ */
 public class RecursiveWithdraw implements WithdrawStrategy {
 	public List<Valuable> withdraw(Valuable amount, List<Valuable> items) {
 		double value = amount.getValue();

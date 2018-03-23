@@ -47,7 +47,7 @@ public class WithdrawTest {
 		return new Money(value, "Baht");
 	}
 
-	/** Test if the size is full or not */
+	/** Test if the withdraw's money is null or not */
 	@Test
 	public void testWithdrawEmpty() {
 		List<Valuable> money2 = strategy.withdraw(makeMoney(50), money);
@@ -63,7 +63,7 @@ public class WithdrawTest {
 		assertTrue(money.size() == 0);
 	}
 
-	/** Test withdraw more than the money in the list */
+	/** Test if it can withdraw bigger amount of money in the list or not */
 	@Test
 	public void testWithdrawOver() {
 		money.add(makeMoney(50));
@@ -71,7 +71,7 @@ public class WithdrawTest {
 		assertNull(money2);
 	}
 
-	/** Test if the items change or not */
+	/** Test the strategy of withdraw */
 	@Test
 	public void testWithdrawStrategy() {
 		money.add(makeMoney(50));

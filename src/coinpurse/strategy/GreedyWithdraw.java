@@ -8,17 +8,13 @@ import coinpurse.Valuable;
 
 /**
  * A strategy to withdraw the requested amount of money. using only items that
- * have the same currency as the parameter(amount). Return an array of money
- * withdrawn from list, or return null if cannot withdraw the amount requested.
+ * have the same currency as the parameter(amount). Return list of money
+ * that should be withdrawn, or return null if no money to withdraw.
  * 
  * @author Vichaphol Thamsuthikul
  *
  */
 public class GreedyWithdraw implements WithdrawStrategy {
-	/**
-	 * 
-	 * @param 
-	 */
 	public List<Valuable> withdraw(Valuable amount, List<Valuable> items) {
 		List<Valuable> templist = new ArrayList<Valuable>();
 		Collections.sort(items);
