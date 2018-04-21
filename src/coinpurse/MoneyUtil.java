@@ -46,9 +46,9 @@ public class MoneyUtil {
 	}
 
 	/**
-	 * Sort the list of coins and print the result on the console.
+	 * Sort the list of money and print the result on the console.
 	 * 
-	 * @param coin's
+	 * @param money's
 	 *            object
 	 */
 	public static void sortMoney(List<? extends Valuable> money) {
@@ -61,7 +61,7 @@ public class MoneyUtil {
 	/**
 	 * Print the value and currency.
 	 * 
-	 * @param coin's
+	 * @param money's
 	 *            object
 	 */
 	public static void printValue(List<? extends Valuable> money) {
@@ -74,11 +74,11 @@ public class MoneyUtil {
 	/*
 	 * Filter the money by the currency.
 	 * 
-	 * @param value of the object
+	 * @param list of money
 	 * 
 	 * @param currency
 	 * 
-	 * @return list of the value that have the same currency
+	 * @return list of the money that have the same currency
 	 */
 	public static <E extends Valuable> List<E> filterByCurrency(List<E> money, String currency) {
 		List<E> compCurrency = new ArrayList<>();
@@ -90,21 +90,12 @@ public class MoneyUtil {
 	}
 
 	/**
-	 * Main for testing compareTo method
+	 * Main for testing method
 	 * 
 	 * @param args
 	 *            is not used
 	 */
 	public static void main(String[] args) {
-		// List<Valuable> coins = new ArrayList<Valuable>();
-		// coins.add(new Coin(10.0, "Baht"));
-		// coins.add(new Coin(20.0, "Dollar"));
-		// coins.add(new Coin(50.0, "Yen"));
-		// coins.add(new Coin(10.0, "Rupee"));
-		// coins.add(new Coin(30.0, "Peso"));
-		// printValue(coins);
-		// sortMoney(coins);
-
 		List<BankNote> list = new ArrayList<BankNote>();
 		list.add(new BankNote(10.0, "USD", 100));
 		list.add(new BankNote(500.0, "Baht", 101));
