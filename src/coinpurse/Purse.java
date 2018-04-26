@@ -11,14 +11,15 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * A coin purse contains coins. You can insert coins, withdraw money, check the
- * balance, and check if the purse is full.
+ * A coin purse contains money. You can insert money, withdraw money, check the
+ * balance, and check if the purse is full or not.
  * 
  * @author Vichaphol Thamsuthikul
  */
 public class Purse {
 	/** Collection of objects in the purse. */
 	List<Valuable> money;
+	/** Container of many strategies */
 	private WithdrawStrategy strategy;
 	/** Create a ValueComparator object */
 	private Comparator<Valuable> comparable = new ValueComparator();
@@ -30,7 +31,7 @@ public class Purse {
 	private final int capacity;
 
 	/**
-	 * Create a purse with a specified capacity.
+	 * Create a purse with a specified capacity and set the strategy.
 	 * 
 	 * @param capacity
 	 *            is maximum number of money you can put in purse.
@@ -48,7 +49,6 @@ public class Purse {
 	 * @return the number of bank notes in the purse
 	 */
 	public int count() {
-
 		return money.size();
 	}
 
@@ -90,7 +90,7 @@ public class Purse {
 	 * 
 	 * @param value
 	 *            is a valuable's object to insert into purse
-	 * @return true if money inserted, false if can't insert
+	 * @return true if money is inserted, false if can't be inserted.
 	 */
 	public boolean insert(Valuable value) {
 		if (value.getValue() <= 0 || isFull())
@@ -137,7 +137,12 @@ public class Purse {
 		Money money = new Money(amount, "Baht");
 		return withdraw(money);
 	}
-
+	
+	/**
+	 * Set one strategy.
+	 * 
+	 * @param strategy to be set
+	 */
 	public void setWithdrawStrategy(WithdrawStrategy strategy) {
 		this.strategy = strategy;
 	}

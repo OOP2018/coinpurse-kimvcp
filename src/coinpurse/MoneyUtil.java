@@ -10,7 +10,7 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 import java.util.Iterator;
 
 /**
- * A main class to test compareTo method.
+ * A utility class to test many methods of money.
  * 
  * @author Vichaphol Thamsuthikul
  */
@@ -90,7 +90,7 @@ public class MoneyUtil {
 	}
 
 	/**
-	 * Main for testing method
+	 * Main for testing methods.
 	 * 
 	 * @param args
 	 *            is not used

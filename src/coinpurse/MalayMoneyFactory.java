@@ -15,6 +15,7 @@ public class MalayMoneyFactory extends MoneyFactory {
 	 * 
 	 * @param value
 	 *            to create
+	 * @return Valuable object
 	 * @throws IllegalArgumentException
 	 */
 

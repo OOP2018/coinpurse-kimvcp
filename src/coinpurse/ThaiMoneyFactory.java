@@ -15,6 +15,7 @@ public class ThaiMoneyFactory extends MoneyFactory {
 	 * 
 	 * @param value
 	 *            to create
+	 * @return valuable object
 	 * @throws IllegalArgumentException
 	 */
 	@Override
@@ -30,7 +31,7 @@ public class ThaiMoneyFactory extends MoneyFactory {
 			}
 
 		}
-		throw new IllegalArgumentException("Sorry, "+value+" is not valid.");
+		throw new IllegalArgumentException("Sorry, " + value + " is not valid.");
 	}
 
 }

@@ -21,7 +21,7 @@ public class Coin extends Money {
 	}
 
 	/**
-	 * print the words.
+	 * Print the words.
 	 * 
 	 * @return the words
 	 */

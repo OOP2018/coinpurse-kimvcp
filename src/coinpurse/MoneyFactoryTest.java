@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  */
 public class MoneyFactoryTest {
-	
+
 	/** Test if it is singleton or not */
 	@Test
 	public void TestSingleton() {
@@ -20,7 +20,7 @@ public class MoneyFactoryTest {
 		MoneyFactory m2 = MoneyFactory.getInstance();
 		assertTrue(m == m2);
 	}
-	
+
 	/** Test if it is set or not */
 	@Test
 	public void TestSetFactory() {
@@ -30,7 +30,7 @@ public class MoneyFactoryTest {
 		assertFalse(m == m2);
 	}
 
-	/** Test if it is created the same value or not */
+	/** Test if it is created the same value or not (Thai factory) */
 	@Test
 	public void TestThaiFactory() {
 		MoneyFactory m = MoneyFactory.getInstance();
@@ -40,7 +40,7 @@ public class MoneyFactoryTest {
 		assertTrue(m == m2);
 	}
 
-	/** Test if it is created the same value or not */
+	/** Test if it is created the same value or not (Malay factory)*/
 	@Test
 	public void TestMalaysiaFactory() {
 		MoneyFactory.setFactory(new MalayMoneyFactory());

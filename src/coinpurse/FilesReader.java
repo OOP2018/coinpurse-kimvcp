@@ -12,7 +12,7 @@ public class FilesReader {
 	/**
 	 * Read a properties file
 	 * 
-	 * @return factory object
+	 * @return MoneyFactory object
 	 */
 	public static MoneyFactory readFiles() {
 		ResourceBundle bundle = ResourceBundle.getBundle("purse");

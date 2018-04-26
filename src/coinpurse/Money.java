@@ -1,8 +1,8 @@
 package coinpurse;
 
 /**
- * The class which contains the monetary attributes such as value and currency.  
- *  
+ * The class which contains the monetary attributes such as value and currency.
+ * 
  * @author Vichaphol Thamsuthikul
  *
  */
@@ -47,7 +47,7 @@ public class Money implements Valuable {
 	 * by value.
 	 * 
 	 * @param o
-	 *            valuable object
+	 *            Valuable object
 	 * @return 1 if the object coin has bigger value and currency. -1 if the object
 	 *         coin has smaller value and currency. 0 if both has the same value.
 	 */

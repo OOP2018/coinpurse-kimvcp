@@ -1,6 +1,17 @@
 package coinpurse;
 
+/**
+ * A utility class to test many methods in purse class.
+ * 
+ * @author Vichaphol Thamsuthikul
+ */
 public class PurseUtil {
+	/**
+	 * Main for testing methods.
+	 * 
+	 * @param args
+	 *            is not used
+	 */
 	public static void main(String[] args) {
 		Purse purse = new Purse(4);
 		purse.insert(new Money(3, "Dollar"));

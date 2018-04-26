@@ -11,10 +11,12 @@ public class BankNote extends Money {
 	private long serialNumber;
 
 	/**
-	 * Constructor for creating object BankNote with value and currency.
+	 * Constructor for creating object BankNote with value, currency, and
+	 * serialNumber.
 	 * 
 	 * @param value
 	 * @param currency
+	 * @param serialNumber
 	 * 
 	 */
 	public BankNote(double value, String currency, long serialNumber) {
@@ -33,7 +35,7 @@ public class BankNote extends Money {
 	}
 
 	/**
-	 * print the words.
+	 * Print the words.
 	 * 
 	 * @return the words
 	 */

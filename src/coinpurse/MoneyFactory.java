@@ -25,7 +25,8 @@ public abstract class MoneyFactory {
 	 * Create mew money object in the local currency. If the value is not a valid
 	 * currency amount, then throw IllegalArgumentException.
 	 * 
-	 * @param value
+	 * @param Value
+	 * @return Valuable money
 	 * @throws IllegalArgumentException
 	 */
 	public abstract Valuable createMoney(double value) throws IllegalArgumentException;
@@ -35,7 +36,7 @@ public abstract class MoneyFactory {
 	 * method converts parameter to a double and calls createMoney(double), but a
 	 * subclass may override it to permit other parameter values.
 	 * 
-	 * @param value
+	 * @param Value
 	 * @return Valuable money
 	 * @throws IllegalArgumentException
 	 */
@@ -54,7 +55,7 @@ public abstract class MoneyFactory {
 	 * for testing of MoneyFactory.
 	 * 
 	 * @param f
-	 *            object of MoneyFactory
+	 *            Object of MoneyFactory
 	 */
 	static void setFactory(MoneyFactory f) {
 		factory = f;

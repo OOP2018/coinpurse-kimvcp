@@ -3,7 +3,7 @@ package coinpurse;
 import java.util.Comparator;
 
 /**
- * The class to compare the value
+ * A class having a method to compare the value.
  * 
  * @author Vichaphol Thamsuthikul
  */
